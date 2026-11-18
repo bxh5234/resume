@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f3ef">
+  <meta name="description" content="The professional resume and portfolio of Bradin Heimbach.">
+  <title>Bradin Heimbach — Resume</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --paper: #f4f3ef;
+      --surface: #fffefa;
+      --ink: #1d2925;
+      --muted: #64716b;
+      --line: #dedfd8;
+      --accent: #28644e;
+      --accent-soft: #e4eee8;
+      --serif: Georgia, "Times New Roman", serif;
+      --sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--sans); line-height: 1.65; }
+    a { color: inherit; }
+    .page { width: min(1120px, calc(100% - 48px)); margin: 0 auto; }
+    .topbar { display: flex; justify-content: space-between; align-items: center; padding: 28px 0; border-bottom: 1px solid var(--line); }
+    .wordmark { font-size: .82rem; font-weight: 750; letter-spacing: .12em; text-transform: uppercase; }
+    .nav { display: flex; gap: 27px; align-items: center; color: var(--muted); font-size: .85rem; }
+    .nav a { text-decoration: none; }
+    .nav a:hover, .contact a:hover { color: var(--accent); }
+    .hero { display: grid; grid-template-columns: minmax(0, 1fr) 220px; gap: 64px; align-items: end; padding: 88px 0 78px; }
+    .eyebrow { margin: 0 0 15px; color: var(--accent); font-size: .76rem; font-weight: 750; letter-spacing: .16em; text-transform: uppercase; }
+    h1 { max-width: 760px; margin: 0; font: 500 clamp(3.4rem, 8vw, 6.8rem)/.98 var(--serif); letter-spacing: -.055em; }
+    .intro { max-width: 660px; margin: 27px 0 0; color: var(--muted); font-size: 1.08rem; }
+    .hero-aside { padding: 18px 0 4px 20px; border-left: 1px solid var(--line); color: var(--muted); font-size: .85rem; }
+    .hero-aside p { margin: 0 0 12px; }
+    .hero-aside strong { display: block; color: var(--ink); font-size: .72rem; letter-spacing: .1em; text-transform: uppercase; }
+    .layout { display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 64px; padding: 0 0 90px; }
+    .sidebar { padding-top: 6px; }
+    .sidebar-inner { position: sticky; top: 28px; }
+    .sidebar-label { margin: 0 0 13px; color: var(--muted); font-size: .7rem; font-weight: 750; letter-spacing: .14em; text-transform: uppercase; }
+    .contact { display: grid; gap: 9px; font-size: .86rem; }
+    .contact a { color: var(--muted); text-decoration: none; overflow-wrap: anywhere; }
+    .side-rule { height: 1px; margin: 27px 0; background: var(--line); }
+    .content { min-width: 0; }
+    .section { padding: 0 0 43px; margin: 0 0 41px; border-bottom: 1px solid var(--line); scroll-margin-top: 24px; }
+    .section:last-child { margin-bottom: 0; border: 0; }
+    .section-heading { display: flex; justify-content: space-between; gap: 20px; align-items: baseline; margin-bottom: 23px; }
+    h2 { margin: 0; font: 500 2rem/1.2 var(--serif); letter-spacing: -.025em; }
+    .section-count { color: var(--muted); font-size: .75rem; }
+    .entry { display: grid; grid-template-columns: minmax(130px, 175px) minmax(0, 1fr); gap: 25px; padding: 20px 0; border-top: 1px solid var(--line); }
+    .entry:first-of-type { border-top: 0; padding-top: 0; }
+    .date { color: var(--muted); font-size: .8rem; }
+    .date span { display: block; }
+    h3 { margin: 0; font-size: 1rem; line-height: 1.4; }
+    .subhead { margin: 3px 0 9px; color: var(--accent); font-size: .86rem; }
+    .entry p, .summary-copy { margin: 0; color: var(--muted); font-size: .91rem; }
+    .placeholder { display: inline-block; padding: 2px 8px; border-radius: 4px; background: var(--accent-soft); color: var(--accent); font-size: .82em; }
+    .skills { display: flex; flex-wrap: wrap; gap: 8px; padding-top: 2px; }
+    .skill { padding: 6px 11px; border: 1px solid var(--line); border-radius: 99px; color: var(--muted); font-size: .81rem; }
+    .note { margin-top: 19px; padding: 13px 15px; border-left: 2px solid var(--accent); background: rgba(255,254,250,.7); color: var(--muted); font-size: .8rem; }
+    footer { display: flex; justify-content: space-between; gap: 20px; padding: 20px 0 35px; border-top: 1px solid var(--line); color: var(--muted); font-size: .78rem; }
+    .print-link { border: 0; padding: 0; background: none; color: var(--accent); font: inherit; cursor: pointer; }
+    @media (max-width: 720px) {
+      .page { width: min(100% - 34px, 560px); }
+      .topbar { padding: 20px 0; }
+      .nav { gap: 14px; font-size: .78rem; }
+      .nav a:nth-child(2) { display: none; }
+      .hero { grid-template-columns: 1fr; gap: 27px; padding: 62px 0 48px; }
+      .hero-aside { display: flex; gap: 28px; padding: 0; border: 0; }
+      .layout { grid-template-columns: 1fr; gap: 42px; }
+      .sidebar-inner { position: static; }
+      .contact { display: flex; flex-wrap: wrap; gap: 8px 18px; }
+      .side-rule, .sidebar-label { display: none; }
+      .entry { grid-template-columns: 1fr; gap: 7px; }
+      .date span { display: inline; }
+      .date span + span::before { content: " · "; }
+    }
+    @media print {
+      :root { --paper: #fff; --surface: #fff; }
+      body { background: white; font-size: 10pt; }
+      .page { width: 100%; }
+      .topbar, .nav, .print-link { display: none; }
+      .hero { padding: 10px 0 28px; grid-template-columns: 1fr 170px; gap: 30px; }
+      h1 { font-size: 44pt; }
+      .layout { grid-template-columns: 170px 1fr; gap: 30px; padding-bottom: 0; }
+      .sidebar-inner { position: static; }
+      .section { padding-bottom: 20px; margin-bottom: 20px; }
+      .entry { padding: 11px 0; }
+      .note { display: none; }
+      a { text-decoration: none; }
+      footer { padding-bottom: 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="topbar">
+      <a class="wordmark" href="#top" style="text-decoration:none">Bradin Heimbach</a>
+      <nav class="nav" aria-label="Main navigation">
+        <a href="#experience">Experience</a>
+        <a href="#education">Education</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="name">
+        <div>
+          <p class="eyebrow">Resume · 2026</p>
+          <h1 id="name">Bradin<br>Heimbach</h1>
+          <p class="intro">Add a concise professional introduction here—what you do, the experience you bring, and the kind of work you want to do next.</p>
+        </div>
+        <div class="hero-aside">
+          <p><strong>Based in</strong><span class="placeholder">City, State</span></p>
+          <p><strong>Open to</strong><span class="placeholder">Role / opportunity</span></p>
+        </div>
+      </section>
+
+      <div class="layout">
+        <aside class="sidebar" id="contact">
+          <div class="sidebar-inner">
+            <p class="sidebar-label">Get in touch</p>
+            <div class="contact">
+              <a href="mailto:your.email@example.com">your.email@example.com</a>
+              <a href="https://www.linkedin.com/" aria-label="LinkedIn profile">LinkedIn profile</a>
+              <a href="https://github.com/">GitHub profile</a>
+              <span class="placeholder">Phone number (optional)</span>
+            </div>
+            <div class="side-rule"></div>
+            <p class="sidebar-label">A note</p>
+            <p class="summary-copy">This is a clean, responsive resume layout. Replace the highlighted prompts with details from your CV.</p>
+          </div>
+        </aside>
+
+        <div class="content">
+          <section class="section" id="experience">
+            <div class="section-heading"><h2>Experience</h2><span class="section-count">01 — Work history</span></div>
+            <article class="entry">
+              <div class="date"><span>Start — End</span><span>Location</span></div>
+              <div><h3>Job title</h3><p class="subhead">Company name</p><p>Summarize your role, scope, and impact. Add two or three accomplishment-focused sentences, using specific results or metrics where your CV provides them.</p></div>
+            </article>
+            <article class="entry">
+              <div class="date"><span>Start — End</span><span>Location</span></div>
+              <div><h3>Previous job title</h3><p class="subhead">Company name</p><p>Describe the work you owned and the outcomes you delivered. Keep the most relevant details for the roles you want next.</p></div>
+            </article>
+            <div class="note">Work history and dates are placeholders because the CV attachment was not available to me in this chat. Share the file or paste its text and I can fill this in accurately.</div>
+          </section>
+
+          <section class="section" id="education">
+            <div class="section-heading"><h2>Education</h2><span class="section-count">02 — Learning</span></div>
+            <article class="entry">
+              <div class="date"><span>Year</span><span>Location</span></div>
+              <div><h3>Degree or qualification</h3><p class="subhead">School or institution</p><p>Add relevant honors, coursework, certifications, or other training if they appear in your CV.</p></div>
+            </article>
+          </section>
+
+          <section class="section" id="skills">
+            <div class="section-heading"><h2>Skills</h2><span class="section-count">03 — What I do</span></div>
+            <p class="summary-copy">List the capabilities and tools most relevant to your work.</p>
+            <div class="skills" aria-label="Skills">
+              <span class="skill">Skill or tool</span><span class="skill">Skill or tool</span><span class="skill">Skill or tool</span><span class="skill">Skill or tool</span>
+            </div>
+          </section>
+
+          <section class="section" id="additional">
+            <div class="section-heading"><h2>Additional</h2><span class="section-count">04 — Beyond the role</span></div>
+            <p class="summary-copy">Optional: projects, publications, volunteer work, awards, or interests that add useful context to your professional story.</p>
+          </section>
+        </div>
+      </div>
+    </main>
+
+    <footer><span>© 2026 Bradin Heimbach</span><button class="print-link" onclick="window.print()">Print / save as PDF ↗</button></footer>
+  </div>
+</body>
+</html>
